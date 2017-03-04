@@ -1,3 +1,51 @@
-	 hello	 good
-	 morning	 hello
-	 good
+
+!要是用git来管理项目，首先创建一个版本仓库
+执行 git init;创建了一个.git仓库
+2:git config 配置信息，只需要配置一次
+3：git status 查看笨笨仓库状态；
+
+4：git add -A; //全部；===git add *  放到暂存区；
+ git add 文件名，或者文件目录，、
+ 5：git checkout  可以把暂存区的内容还原到工作区域，
+ 6 git commit -m 将 暂存区的内容放到仓库永久保存
+
+7:git log 查看信息
+8:回滚到某个节点按照的是commit  baaecb10765619ac50ef3a42738ec6e07057e78e 标识
+git reset --hard  baaecb10765619ac50ef3a42738ec6e07057e78e
+
+9：
+git branch  分支名称；
+git branch cart
+git branch  //查看分支
+当前在哪个分支上，这个分支就有* 号，
+git checkout cart //切换到分支； 
+不同分支之下，同一个文件会按照分支初始化的不同，代码回到切换之前的状态，
+
+合并分支  git merge master   //合并被合并的分支
+
+存盘点是基于当前分支下的，当前分支就是新分支的父分支。。。。
+当我们创建一个分支后，比如master分支，新建一个分支之后比如就是cart之后，后面的分支就是master的子分支，自分支继承福分支所有的提交历史记录
+
+git branch -D '分支名称';
+
+
+
+利用共享仓库实现分支和版本的共享；
+git push 讲资源共享到远程仓库，
+
+git pull 从远程仓库取出。。
+
+
+那么怎么创建共享仓库
+1： 必须是.gt结尾的目录
+2： 必须是裸仓库，  git init --bare   
+3：i
+
+
+
+
+r
+
+
+
+
