@@ -4,10 +4,82 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script src ='./js/angular.js'></script>
+	<style>
+	 .red{color:red;}
+	</style>
 </head>
-<body ng-app>
-	<input type='text' ng-model='msg'>
-	<h2>{{msg}}</h2>
+<!-- <h1>xxx在创智播客学习使用angular</h1> -->
+<!-- ng-app 所在的标签代表的是angular特定模块作用范围 -->
+<body>
+<!-- 指定模块，一个页面可以有多个模块，可以使用多个ng-app ,但是一般只有一个-->
+<!-- ng-controller,可以有多个，并且可以嵌套 -->
+<div ng-app='App'>
+    
+	<!-- <input type='text' ng-model='msg'> -->
+	<!-- 下面就是控制器罗 -->
+
+	<div ng-controller='DemoController'>
+	<!-- <h1>{{name}}在{{school}} 学习中</h1> -->
+	<!-- <ul> -->
+	  <!-- <li ng-repeat='(key,course) in courses'>第{{key}}天{{course}}</li> -->
+	  <!-- 关联数据  ng-bind 是用来绑定的数据的，是一个指令 和{{name}}都一样-- >
+	  <!-- <li ng-bind='name'>tt</li> -->
+	  <!-- <li>{{name}}</li> -->
+	  <!-- <li ng-show='false'>显示或影藏的当值是true时候显示，false时候影藏</li> -->
+	  <!-- <li ng-hide='false'>显示或影藏的当值是true时候隐藏，false时候显示</li> -->
+	 <!--  <li ng-if='0'>控制元素的存在，false则不存在，true存在</li>	
+	  <li><img ng-src='{{path}}'></li>
+      <li><a ng-href='{{link}}'>ng-href</a>
+      <li ng-class='{red:true}'>ng-class</li><li ng-class='{red:false}'>ng-class</li> -->
+	<!-- </ul> -->
+	<!-- <h2>{{msg}}</h2> -->
+	<!-- <div ng-include='./head.html'></div>  必须通过后台服务器来访问 -->
+	
+    <div tag></div>
+    <mytag></mytag>
+	 
+</div>
 </body>
 </html>
+<script>
+  // 引入了js库文件之后 ,提供了一个全局对象angular,
+  // module方法可以帮助我们创建一个模块
+  var App=angular.module('App',[]);  //创建一个叫App模块名称,这里[],代表的是依赖关系,App就是新创建的模块。。这个模块又是对象，它又有很多方法，可以利用这写方法实现业务逻辑
+  
+  //通过模块实力对象，directive方法可以自定义命令
+  // App.directive('tag',function(){
+  // 	return {
+  // 		//E作为标签，
+  // 		//a作为属性，attr,
+  // 		// c作为class, 
+  // 		//m作为mark,标记备注时候必须replace：true, 
+  // 		restrict:'EA',
+  // 		template:'<h1>hello angular</h1>'
+  // 	}
+  // })
+
+  // App.directive('mytag',function(){
+  // 	return {
+  // 		restrict:'EA',
+  // 		template:'<ul><li>首页</li><li>列表一</li></ul>'，
+  // 		// replace:true,
+  // 		//templateUrl引用外部文件
+  // 		// templateUrl:'./head.html', //这里又需要服务器访问
+  // 	}
+  // })
+
+  App.controller('DemoController',['$scope',function($scope){
+  	//$scope是一个空的对象，此处是model
+  	$scope.name='姚劲波';
+  	$scope.link='http://www.baidu.com';
+  	$scope.path='./images/author.jpg'
+  	$scope.school='哈弗大学';
+  	$scope.courses=[
+  	'mvc',
+    'tina',
+    'blue',
+  	];
+  }]);  //controller方法可以创建一个名称叫做DemoController的控制器；
+
+</script>
  

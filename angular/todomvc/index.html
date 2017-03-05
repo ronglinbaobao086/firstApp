@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Template • TodoMVC</title>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/index.css">
+		<!-- CSS overrides - remove if you don't need it -->
+		<link rel="stylesheet" href="css/app.css">
+	</head>
+	<body ng-app='Todos'>
+		<section class="todoapp" ng-controller='TodoController'>
+			<header class="header" >
+				<h1>todos</h1>
+				<form ng-submit="add()">
+				<!-- ng-model关联模型 -->
+				<input class="new-todo"  ng-model='text' placeholder="What needs to be done?" autofocus>
+			    </form>
+			</header>
+			<section class="main">
+				<input class="toggle-all" type="checkbox">
+				<label for="toggle-all">Mark all as complete</label>
+				<ul class="todo-list">
+
+					<li  ng-repeat='(key,todo) in todos'>
+						<div class="view">
+							<input class="toggle" type="checkbox" ng-click='done(key)' ng-checked='flag'>
+							<label>{{todo.text}}</label>
+							<button class="destroy" ng-click="delete(todos,key)"></button>
+						</div>
+						<input class="edit" value="Create a TodoMVC template">
+					</li>
+
+					<li>已经完成的</li>
+
+					<li ng-repeat='todo in doneTodos'>
+						<div class="view">
+							<input class="toggle" type="checkbox" ng-check='todos.flag'>
+							<label>{{todo.text}}</label>
+							<button class="destroy" ng-click="delete(doneTodos,key)"></button>
+						</div>
+						<input class="edit" value="Rule the web">
+					</li>
+				</ul>
+			</section>
+			<footer class="footer">
+				<span class="todo-count"><strong>{{todos.length}}</strong> item left</span>
+				<button class="clear-completed">Clear completed</button>
+			</footer>
+		</section>
+		<footer class="info">
+			<p>Double-click to edit a todo</p>
+			<p>Template by <a href="http://sindresorhus.com">Sindre Sorhus</a></p>
+			<p>Created by <a href="http://todomvc.com">you</a></p>
+			<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+		</footer>
+		<!-- <script src="js/base.js"></script> -->
+		<!-- <script src="js/app.js"></script> -->
+		
+		<script src="../js/angular.js"></script>
+		<script>
+         var  Todos=angular.module('Todos',[]);
+         Todos.controller('TodoController',['$scope',function($scope){
+         	// $scope.todos=[
+          //     {text:'洗脸',flag:true},
+          //     {text:'吃饭',flag:true},
+          //     {text:'洗衣服',flag:false}
+         	// ]
+         	//待办事项
+            $scope.todos=[];
+            //已经完成事项
+            $scope.doneTodos=[];
+
+         	$scope.add=function(){
+               
+               $scope.todos.push({text:$scope.text,flag:false});
+               $scope.text ='';
+         	}
+
+         	$scope.done=function(key){
+         	   // splice()
+         	   //从未完成的数组截取一条数据
+         	   alert(key);
+         	   var todo=$scope.todos.splice(key,1)[0];
+         	   todo.flag=true;
+         	   $scope.doneTodos.push(todo);
+
+         	}
+
+         	$scope.delete=function(todos,key){
+         		todos.splice(key,1);
+         	}
+         }]);
+
+		</script>
+	</body>
+</html>

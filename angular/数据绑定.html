@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据绑定</title>
+	<script src="./js/angular.js"></script>
+</head>
+<body ng-app='App'>
+<!-- 从模型往视图绑定就是单向，如果还从视图网模型绑定就是双向 -->
+<!-- 初始化name变量 -->
+<ul ng-controller='DemoController' ng-init="name='itcast';age='10';">
+<li ng-bind='name'></li>
+<li ng-bind='age'></li>
+<!-- 闪烁问题解决的两种方法 -->
+<!-- <li ng-cloak>{{age}}{{name}}</li>
+<li ng-bind-template="{{name}}{{age}}"></li> 
+<input type='text' ng-model='msg'> -->
+<li><button ng-click='single()'>单击</button></li>
+<li><button ng-dblclick='double()'>双击</button></li>
+<li><button ng-blur='blur()'>blur</button></li>
+<li><button ng-mouseout='mouseout()'>mouseout</button></li>
+<li ng-repeat="(key,star) in stars">{{star.name}}</li>
+<!-- <li><button ng-click='show()'></button></li> -->
+<!-- //一个全套的while ,euqal 筛选 -->
+<li ng-repeat='item in items' ng-switch on='item'><span when ng-switch-when='css'>{{item}}</span></li>
+ </ul>
+
+</body>
+</html>
+<script>
+	//通过ng-bind 单项绑定或者{{}}，模型数据向视图绑定；
+	var App=angular.module('App',[]);
+	App.controller('DemoController',['$scope',function($scope){
+		//$scope就是模型对象
+		// $scope.name='itcase';
+		// $scope.age=10;
+
+        //绑定模型
+		//$scope Model 上面的ng-model绑定下面的$scope模型
+        
+        // $scope.show=function(){
+        // 	//
+        // 	alert($scope.msg);
+        // }
+
+
+        $scope.single=function(){
+        	alert("我被单击了");
+        }
+
+        $scope.double=function(){
+        	alert('我被双击了');
+        }
+        $scope.blur=function(){
+        	alert('blur');
+        }
+        $scope.stars=[
+        {
+           name:'刘德华',
+           age:60
+        },{
+           name:'周杰伦',
+           age:25
+        },{
+        	name:'李彦宏',
+        	age:45
+        }
+
+        ];
+        $scope.items=['html','css','js'];
+
+	}]);
+
+
+</script>
