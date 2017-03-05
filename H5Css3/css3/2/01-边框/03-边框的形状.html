@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width:100px;
+            height:100px;
+            border:50px solid #abc;
+            border-color: blue green yellow gray;
+            box-shadow:5px 5px 5px 2px #999;
+            //这里要记住的是box-sizing中得border-box 是内缩的
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+
+        }
+        .borderImg{
+
+             width:100px;
+             height:100px;
+             background-color: red;
+             border-image-source: url(images/border.png);
+             border-image-slice:27 27 27 27;
+             border-image-width:27px ;
+
+            border-image-repeat:round;
+            border-image-outset:27px;
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="borderImg"></div>
+</body>
+</html>

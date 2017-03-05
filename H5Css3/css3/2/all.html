@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 600px;
+            height: 600px;
+            border: 1px solid #000;
+            margin:100px auto;
+
+            background: url(02-背景/images/baby0.jpg) no-repeat;
+            /* 设置背景图片大小*/
+            /*background-size:100px 100px;*/
+
+            /*background-size:600px 600px;*/
+
+            /*background-size: 50% 50%;*/
+
+            /*
+                background-size取值
+                1、具体的长度300px
+                2、百分比
+                3、cover: 覆盖 ： 图片会完全覆盖盒子，有可能显示不完整, 缩放是等比例的
+                4、contain: 包含 ：背景图片会完全等比例 显示盒子中，有可能不会铺满盒子；
+            */
+
+            /*background-size: cover;*/
+
+            background-size: contain;
+
+        }
+        .tinaBack{
+            width:100px;
+            height:100px;
+            padding:30px;
+            border:20px solid blue ;
+            background:red;
+            background-origin: border-box;
+            background:url("02-背景/images/2.jpg") no-repeat;
+            background-size: contain;
+            background-origin: border-box;
+            background-clip: content-box;
+        }
+        .tinaBack2 {
+            width: 623px;
+            height: 417px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            background: url("02-背景/images/bg1.png") no-repeat left top,
+               url("02-背景/images/bg2.png") no-repeat right top,
+           url("02-背景/images/bg3.png") no-repeat right bottom,
+           url("02-背景/images/bg4.png") no-repeat left bottom,
+            url('02-背景/images/bg5.png') no-repeat center
+
+        }
+
+        
+        .tinalinear{
+
+            width:1000px;
+            height:100px;
+
+            /*background-image: linear-gradient(to right,blue,yellow);*/
+            /*background-image:linear-gradient(-45deg,blue,yellow);*/
+            /*background-image:linear-gradient(45deg,blue 0 ,yellow 20%,yellow 50% ,pink 70%,black 100%);*/
+            /*background-image:linear-gradient(to right,yellow 0,yellow 20%,blue 20%,blue 40%,pink 40%,pink 100%);*/
+
+            /*background-image: linear-gradient(135deg,*/
+            /*#000 0%,*/
+            /*#000 25%,*/
+            /*#fff 25%,*/
+            /*#fff 50%,*/
+            /*#000 50%,*/
+            /*#000 75%,*/
+            /*#fff 75%,*/
+            /*#fff 100%*/
+            /*);*/
+            /*background-size:100px 100px;*/
+            /*animation:move 1s linear infinite;*/
+
+
+            background-image:radial-gradient(100px 50px at 300px 60px,yellow,green);
+
+        }
+
+        .tinatransition{
+             width:100px;
+             height:100px;
+             background:red;
+             position:absolute;
+             top:0;
+             left:0;
+             transition:top 2s  ease-in,left 1s ease-out,transform 2s linear;
+        }
+
+        .tinatransition:hover{
+            top:50px;
+            left:100px;
+            transform:scale(2,0.5) translate(50px,70px) rotate(45deg);
+
+        }
+
+        /*实现居中的办法*/
+        /*.center{*/
+            /*position: absolute;*/
+            /*left:50%;*/
+            /*transform:translate(-50%);*/
+            /*width:100px;*/
+            /*height:100px;*/
+            /*border:1px solid ;*/
+            /*z-index:30;*/
+        /*}*/
+
+
+
+ß
+        @keyframes move {
+            0%{
+                background-position: 0 0 ;
+            }
+
+            100%{
+                background-position: 100px 0;
+            }
+        }
+        body{
+            background:#2AB561;
+        }
+        .boxTina{
+
+            width: 440px;
+            height:491px;
+            margin:100px auto;
+
+        }
+
+
+        .boxTina:hover img:nth-child(1){
+            transition:transform 1s ease-in;
+            transform:translate(-100px,20px) scale(2,1) rotate(45deg);
+
+
+        }
+
+        .boxTina1{
+            width: 310px;
+            height: 441px;
+            margin:100px auto;
+            position: relative;
+        }
+
+        .boxTina1 img{
+            position:absolute;
+            top:0;
+            left:0;
+            transition: transform 2s;
+            transform-origin:center bottom;
+
+
+        }
+
+        .boxTina1:hover img:nth-child(1){  transform:rotate(-10deg);}
+        .boxTina1:hover img:nth-child(2){  transform:rotate(-30deg);}
+        .boxTina1:hover img:nth-child(3){  transform:rotate(-50deg);}
+        .boxTina1:hover img:nth-child(4){  transform:rotate(-70deg);}
+        .boxTina1:hover img:nth-child(5){  transform:rotate(-90deg);}
+
+        .boxTina1:hover img:nth-child(7){  transform:rotate(10deg);}
+        .boxTina1:hover img:nth-child(8){  transform:rotate(30deg);}
+        .boxTina1:hover img:nth-child(9){  transform:rotate(50deg);}
+        .boxTina1:hover img:nth-child(10){  transform:rotate(70deg);}
+        .boxTina1:hover img:nth-child(11){  transform:rotate(90deg);}
+
+
+
+        
+
+
+
+
+    </style>
+</head>
+<body>
+    <!--<div class="box">-->
+
+    <!--</div>-->
+    <!--<div class="tinaBack">-->
+
+    <!--</div>-->
+    <!--<div class="tinaBack2">-->
+
+    <!--</div>-->
+    <!--<div class="tinalinear"> </div>-->
+    <!--<div class="tinatransition"></div>-->
+    <!--<div class="center"></div>-->
+
+    <!--<div class="boxTina">-->
+
+        <!--<img src="./2d/images/shield_1_01.png" alt=""/>-->
+        <!--<img src="2d/images/shield_1_02.png" alt=""/>-->
+        <!--<img src="2d/images/shield_1_03.png" alt=""/>-->
+        <!--<img src="2d/images/shield_1_04.png" alt=""/>-->
+        <!--<img src="2d/images/shield_1_05.png" alt=""/>-->
+        <!--<img src="2d/images/shield_1_06.png" alt=""/>-->
+        <!--<img src="2d/images/shield_1_07.png" alt=""/>-->
+        <!--<img src="2d/images/shield_1_08.png" alt=""/>-->
+        <!--<img src="2d/images/shield_1_09.png" alt=""/>-->
+    <!--</div>-->
+
+    <div class="boxTina1">
+        <img  src="2d/images/pk2.png" alt=""/>
+        <img  src="2d/images/pk2.png" alt=""/>
+        <img  src="2d/images/pk2.png" alt=""/>
+        <img  src="2d/images/pk2.png" alt=""/>
+        <img  src="2d/images/pk2.png" alt=""/>
+        <img  src="2d/images/pk2.png" alt=""/>
+        <img  src="2d/images/pk2.png" alt=""/>
+        <img  src="2d/images/pk2.png" alt=""/>
+        <img  src="2d/images/pk2.png" alt=""/>
+        <img  src="2d/images/pk2.png" alt=""/>
+        <img  src="2d/images/pk2.png" alt=""/>
+
+    </div>
+</body>
+</html>
